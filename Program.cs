@@ -9,7 +9,8 @@ namespace GuessWordHelper
     {
         private static void Main()
         {
-            var words = DicReader.ReadDic(Path.Combine("Dics", "Russian.dic"), Path.Combine("Dics", "Russian.aff"));
+            /*var words = DicReader.ReadDic(Path.Combine("Dics", "Russian.dic"), Path.Combine("Dics", "Russian.aff"));*/
+            var words = TxtReader.ReadTxt(Path.Combine("Dics", "word_rus.txt"));
             Console.WriteLine("Введите слово по шаблону: \"__п___а__\"\n");
             var consoleInput = string.Empty;
             while (true)

@@ -10,6 +10,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <PackageReference Include="MyStemWrapper" Version="1.0.0" />
       <PackageReference Include="WeCantSpell.Hunspell" Version="3.0.1" />
     </ItemGroup>
 
@@ -18,6 +19,12 @@
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
       <None Update="Dics\Russian.aff">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="mystem-3.1-win-64bit\mystem.exe">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="Dics\word_rus.txt">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
     </ItemGroup>
