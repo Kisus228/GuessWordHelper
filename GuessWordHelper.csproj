@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Folder Include="Dics" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="WeCantSpell.Hunspell" Version="3.0.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Update="Dics\Russian.dic">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="Dics\Russian.aff">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+
+</Project>
