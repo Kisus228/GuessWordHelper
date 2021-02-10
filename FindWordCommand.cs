@@ -10,15 +10,12 @@ namespace GuessWordHelper
     {
         [Value(0)] public string WordToGuess { get; set; }
 
-        private static readonly Regex RegexPattern = new Regex(@"(?<count>\d+)_");
+        private static readonly Regex RegexForNumber = new Regex(@"\d+");
+        private static readonly MatchEvaluator MatchEvaluator = ReplaceNumber;
 
         public static void FindWords(FindWordCommand opts, HashSet<string> wordsDic)
         {
-            foreach (Match match in RegexPattern.Matches(opts.WordToGuess))
-            {
-                opts.WordToGuess =
-                    opts.WordToGuess.Replace(match.Value, @"(\w|-){" + $"{match.Groups["count"].Value}" + @"}");
-            }
+            opts.WordToGuess = RegexForNumber.Replace(opts.WordToGuess, MatchEvaluator);
             opts.WordToGuess = @"\A" + opts.WordToGuess
                 .Replace("_", @"(\w|-)")
                 .ToLower() + @"\Z";
@@ -27,6 +24,11 @@ namespace GuessWordHelper
                 .Where(word => regex.Match(word).Success)
                 .ToHashSet();
             PrintHandler.PrintMatches(matches);
+        }
+
+        private static string ReplaceNumber(Match m)
+        {
+            return @"(\w|-){" + $"{m.Value}" + @"}";
         }
     }
 }
