@@ -5,7 +5,7 @@ using CommandLine;
 
 namespace GuessWordHelper
 {
-    [Verb("add")]
+    [Verb("д")]
     public class AddWordCommand
     {
         [Value(0)] public string WordToAdd { get; set; }

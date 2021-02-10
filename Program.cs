@@ -7,7 +7,7 @@ namespace GuessWordHelper
 {
     internal static class Program
     {
-        private static readonly string[] Commands = {"add", "remove"};
+        private static readonly string[] Commands = {"д", "у"};
         
         private static void Main()
         {

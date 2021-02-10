@@ -5,7 +5,7 @@ using CommandLine;
 
 namespace GuessWordHelper
 {
-    [Verb("remove")]
+    [Verb("у")]
     public class RemoveWordCommand
     {
         [Value(0)] public string WordToDelete { get; set; }
