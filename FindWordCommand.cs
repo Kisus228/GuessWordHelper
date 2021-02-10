@@ -17,10 +17,10 @@ namespace GuessWordHelper
             foreach (Match match in RegexPattern.Matches(opts.WordToGuess))
             {
                 opts.WordToGuess =
-                    opts.WordToGuess.Replace(match.Value, @"\w{" + $"{match.Groups["count"].Value}" + @"}");
+                    opts.WordToGuess.Replace(match.Value, @"(\w|-){" + $"{match.Groups["count"].Value}" + @"}");
             }
             opts.WordToGuess = @"\A" + opts.WordToGuess
-                .Replace("_", @"\w")
+                .Replace("_", @"(\w|-)")
                 .ToLower() + @"\Z";
             var regex = new Regex(opts.WordToGuess);
             var matches = wordsDic
