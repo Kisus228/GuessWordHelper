@@ -1,11 +1,14 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using CommandLine;
 
 namespace GuessWordHelper
 {
     internal static class Program
     {
+        private static readonly string[] Commands = {"add", "remove"};
+        
         private static void Main()
         {
             var words = TxtReader.ReadTxt(Path.Combine("Dics", "custom.txt"));
@@ -19,7 +22,9 @@ namespace GuessWordHelper
                     break;
                 }
 
-                var args = consoleInput?.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+                var args = Commands.Any(command => consoleInput != null && consoleInput.StartsWith(command))
+                    ? consoleInput?.Split(' ', 2, StringSplitOptions.RemoveEmptyEntries)
+                    : new[] {consoleInput};
                 Parser.Default.ParseArguments<AddWordCommand, RemoveWordCommand, FindWordCommand>(args)
                     .WithParsed<AddWordCommand>(o => AddWordCommand.AddWord(o, words))
                     .WithParsed<RemoveWordCommand>(o => RemoveWordCommand.RemoveWord(o, words))

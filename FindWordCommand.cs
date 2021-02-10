@@ -13,7 +13,9 @@ namespace GuessWordHelper
         public static void FindWords(FindWordCommand opts, HashSet<string> wordsDic)
         {
             var lettersCount = opts.WordToGuess.Length;
-            opts.WordToGuess = opts.WordToGuess.Replace("_", @"\w").ToLower();
+            opts.WordToGuess = opts.WordToGuess
+                .Replace("_", @"\w")
+                .ToLower();
             var regex = new Regex(opts.WordToGuess);
             var matches = wordsDic
                 .Where(word => word.Length == lettersCount && regex.Match(word).Success)
