@@ -8,7 +8,8 @@ namespace GuessWordHelper
     [Verb("find", true)]
     public class FindWordCommand
     {
-        [Value(0)]public string WordToGuess { get; set; }
+        [Value(0)] public string WordToGuess { get; set; }
+
         public static void FindWords(FindWordCommand opts, HashSet<string> wordsDic)
         {
             var lettersCount = opts.WordToGuess.Length;

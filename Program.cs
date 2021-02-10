@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics.Tracing;
 using System.IO;
-using System.Text;
 using CommandLine;
 
 namespace GuessWordHelper
@@ -18,7 +15,10 @@ namespace GuessWordHelper
             {
                 consoleInput = Console.ReadLine();
                 if (consoleInput == string.Empty)
+                {
                     break;
+                }
+
                 var args = consoleInput?.Split(' ', StringSplitOptions.RemoveEmptyEntries);
                 Parser.Default.ParseArguments<AddWordCommand, RemoveWordCommand, FindWordCommand>(args)
                     .WithParsed<AddWordCommand>(o => AddWordCommand.AddWord(o, words))
