@@ -6,26 +6,14 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Dics" />
-    </ItemGroup>
-
-    <ItemGroup>
+      <PackageReference Include="CommandLineParser" Version="2.8.0" />
       <PackageReference Include="MyStemWrapper" Version="1.0.0" />
       <PackageReference Include="WeCantSpell.Hunspell" Version="3.0.1" />
     </ItemGroup>
 
     <ItemGroup>
-      <None Update="Dics\Russian.dic">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </None>
-      <None Update="Dics\Russian.aff">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </None>
-      <None Update="mystem-3.1-win-64bit\mystem.exe">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </None>
-      <None Update="Dics\word_rus.txt">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <None Update="Dics\custom.txt">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </None>
     </ItemGroup>
 
